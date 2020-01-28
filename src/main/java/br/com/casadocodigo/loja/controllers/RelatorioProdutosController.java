@@ -21,6 +21,7 @@ public class RelatorioProdutosController {
 	
 	@Autowired
 	private ProdutoDAO produtoDao;
+	
 
 	@RequestMapping(value="",method=RequestMethod.GET,produces = "application/json")
 	@ResponseBody

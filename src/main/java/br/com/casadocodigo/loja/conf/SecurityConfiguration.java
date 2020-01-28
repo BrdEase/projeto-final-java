@@ -24,6 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		//não estou utilizando o usuário pra nada na finalização.
 		http.authorizeRequests()
 		.antMatchers("/produtos/form").hasRole("ADMIN")
+		.antMatchers("/pedidos/**").hasRole("ADMIN")
 		.antMatchers(HttpMethod.POST, "/produtos").hasRole("ADMIN")
 		.antMatchers(HttpMethod.GET, "/produtos").hasRole("ADMIN")
 		.antMatchers("/carrinho/**").permitAll()
