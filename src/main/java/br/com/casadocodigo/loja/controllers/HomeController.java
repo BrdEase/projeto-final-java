@@ -7,7 +7,6 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,7 +44,7 @@ public class HomeController {
 	}	
 	
 	@ResponseBody
-	@RequestMapping("/url-magica-maluca-oajksfbvad6584i57j54f9684nvi658efnoewfmnvowefnoeijn")
+	//@RequestMapping("/url-magica-maluca-oajksfbvad6584i57j54f9684nvi658efnoewfmnvowefnoeijn")
 	@Transactional
 	public String urlMagicaMaluca() {
 		
@@ -96,8 +95,8 @@ public class HomeController {
 		produto.setDataLancamento(data);
 		produto.setDescricao(descricao);
 		Preco ebook = new Preco(new BigDecimal(precos[0]), TipoPreco.EBOOK);
-		Preco impresso = new Preco(new BigDecimal(precos[0]), TipoPreco.IMPRESSO);
-		Preco combo = new Preco(new BigDecimal(precos[0]), TipoPreco.COMBO);
+		Preco impresso = new Preco(new BigDecimal(precos[1]), TipoPreco.IMPRESSO);
+		Preco combo = new Preco(new BigDecimal(precos[2]), TipoPreco.COMBO);
 		produto.setPrecos(Arrays.asList(ebook,impresso, combo));
 		return produto;
 	}

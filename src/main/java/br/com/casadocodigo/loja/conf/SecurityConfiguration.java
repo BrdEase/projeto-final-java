@@ -1,6 +1,7 @@
 package br.com.casadocodigo.loja.conf;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -19,20 +20,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		//Aqui achei melhor deixar o detalhe dos produtos sem login pois 
+		//não estou utilizando o usuário pra nada na finalização.
 		http.authorizeRequests()
-			.antMatchers("/produtos/detalhes/**").permitAll()
-			.antMatchers("/produtos/**").hasRole("ADMIN")
-			.antMatchers("/carrinho/**").permitAll()	
-			.antMatchers("/pagamento/**").permitAll()	
-			.antMatchers("/").permitAll()
-			.antMatchers("/url-magica-maluca-oajksfbvad6584i57j54f9684nvi658efnoewfmnvowefnoeijn").permitAll()
-			.anyRequest().authenticated()
-			.and()
-				.formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll()
-			.and()
-				.logout()
-	            .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll() 
-	            .logoutSuccessUrl("/login");
+		.antMatchers("/produtos/form").hasRole("ADMIN")
+		.antMatchers(HttpMethod.POST, "/produtos").hasRole("ADMIN")
+		.antMatchers(HttpMethod.GET, "/produtos").hasRole("ADMIN")
+		.antMatchers("/carrinho/**").permitAll()
+		.antMatchers("/pagamento/**").permitAll()
+		.antMatchers("/produtos/**").permitAll()
+		.antMatchers("/resources/**").permitAll()
+		.antMatchers("/relatorio-produtos/**").permitAll()
+		.antMatchers("/").permitAll()
+		.antMatchers("/url-magica-maluca-oajksfbvad6584i57j54f9684nvi658efnoewfmnvowefnoeijn").permitAll()
+		.anyRequest().authenticated()
+		.and().formLogin().loginPage("/login").permitAll()
+		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 	}
 	
 	@Override

@@ -54,7 +54,8 @@ public class PagamentoController {
 	private void enviaEmailCompraProduto(Usuario usuario) {
 		SimpleMailMessage email = new SimpleMailMessage();
 		email.setSubject("Compra finalizado com sucesso");
-		email.setTo(usuario.getEmail());
+		//email.setTo(usuario.getEmail()); pra proposito de teste coloquei meu email
+		email.setTo("spinelimurilo@gmail.com");
 		email.setText("Compra aprovada com sucesso no valor de " + carrinho.getTotal());
 		email.setFrom("compras@casadocodigo.com.br");
 		
