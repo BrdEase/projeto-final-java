@@ -15,7 +15,7 @@ public class PedidosServicoController {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	@RequestMapping("")
+	@RequestMapping()
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView("pedidos/pedidos");
 		

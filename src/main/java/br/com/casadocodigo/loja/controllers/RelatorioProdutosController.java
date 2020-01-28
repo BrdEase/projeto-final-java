@@ -23,7 +23,7 @@ public class RelatorioProdutosController {
 	private ProdutoDAO produtoDao;
 	
 
-	@RequestMapping(value="",method=RequestMethod.GET,produces = "application/json")
+	@RequestMapping(method=RequestMethod.GET,produces = "application/json")
 	@ResponseBody
 	public RelatorioProdutos index(@RequestParam(value="data") Optional<String> data) throws ParseException {
 		if (data.isPresent()) {

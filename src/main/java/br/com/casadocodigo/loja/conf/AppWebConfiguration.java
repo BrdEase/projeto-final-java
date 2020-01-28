@@ -19,6 +19,7 @@ import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.validation.DefaultMessageCodesResolver;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartResolver;
@@ -40,6 +41,7 @@ import br.com.casadocodigo.loja.controllers.HomeController;
 import br.com.casadocodigo.loja.dao.ProdutoDAO;
 import br.com.casadocodigo.loja.infra.FileSaver;
 import br.com.casadocodigo.loja.models.CarrinhoCompras;
+import br.com.casadocodigo.loja.validation.UsuarioValidation;
 
 @EnableWebMvc
 @ComponentScan(basePackageClasses = { HomeController.class, ProdutoDAO.class, FileSaver.class, CarrinhoCompras.class })
@@ -141,4 +143,5 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
 		return mailSender;
 	}
+
 }

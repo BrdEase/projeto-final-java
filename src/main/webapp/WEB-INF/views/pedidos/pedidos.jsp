@@ -11,8 +11,8 @@
 
 	<div class="container">
 		<h1>Lista de Pedidos</h1>
-		<p>${sucesso}</p>
-		<p>${falha}</p>
+		<!-- <p>${sucesso}</p>
+		<p>${falha}</p> -->
 
 		<table class="table table-bordered">
 			<tr>

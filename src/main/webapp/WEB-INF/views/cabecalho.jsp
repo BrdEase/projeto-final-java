@@ -18,6 +18,9 @@
 						<li><a href="${s:mvcUrl('PSC#index').build() }" rel="nofollow">
 								<s:message code="menu.pedidos"/>
 							</a></li>
+						<li><a href="${s:mvcUrl('UC#listar').build() }" rel="nofollow">
+								<s:message code="menu.usuarios"/>
+							</a></li>
 					</security:authorize>
 						<li>
 							<a href="${s:mvcUrl('CCC#itens').build() }" rel="nofollow">
